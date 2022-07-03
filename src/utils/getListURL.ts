@@ -4,7 +4,8 @@ export function getListURL(_listUrlData: UrlData[]) : string {
   let stringifyURLs: string = "";
   _listUrlData.forEach(function(value: UrlData, index: number) {
     let url = value.url;
-    stringifyURLs = stringifyURLs + `${index+1}. ${url}\n`
+    let checkType = value.check_type;
+    stringifyURLs = stringifyURLs + `${index+1}. ${checkType} - ${url} \n`
   })
   return stringifyURLs;
 }

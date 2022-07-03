@@ -1,4 +1,4 @@
--project-name = 'Watch Web Resources' Bot
+-project-name = 'Monitor Web Resources' Bot
 
 start = 
   Bienvenu, {$name}, sur le {-project-name}! Ce Bot envoi une notification Telegram quand une Ressource Web monitorée a été modifiée depuis le dernier monitoring. Envoi /help pour une liste des commandes disponibles. 

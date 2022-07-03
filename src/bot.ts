@@ -24,6 +24,7 @@ bot.use(
   session({
     initial: () => ({ 
       route: '',
+      urlToAdd: '',
       urlData: [],
       count: 0 }),
     storage: new DetaAdapter<SessionData>({
