@@ -1,7 +1,7 @@
--project-name = 'Monitor Web Resources' Bot
+-project-name = 'Check-My-Web' Bot
 
 start = 
-  Welcome, {$name}, to the {-project-name}! This Bot sends a Telegram notification when a Web Resource being monitored fails the check to be performed. Send /help for a list of available commands. 
+  Welcome, {$name}, to the {-project-name}! This Bot lets you configure the checks to be made against Web Resources and sends a Telegram notification when a Web Resource being monitored fails the check to be performed. Send /help for a list of available commands. 
 
 help = 
   These are the available commands :
