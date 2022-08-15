@@ -7,9 +7,15 @@ url-already-listed =
 missing-url = 
   Oups! URL is missing!...
 
+missing-check-type =
+  Oups ! Check type is missing !...
+
 wrong-check-type =
   That is not a valid check type, \
   please use one of the buttons!
+
+missing-sentence =
+  This check type needs a sentence parameter !...
 
 get-web-resource-failed = 
   /add URL {$url} failed with error: {$error}

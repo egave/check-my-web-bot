@@ -23,8 +23,10 @@ bot.api.config.use(apiThrottler())
 bot.use(
   session({
     initial: () => ({ 
-      route: '',
+      route: 'idle',
       urlToAdd: '',
+      checkType: -1,
+      sentence: '',
       urlData: [],
       count: 0 }),
     storage: new DetaAdapter<SessionData>({

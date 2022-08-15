@@ -4,8 +4,11 @@ empty-list =
 max-nbr-url =
   You already reached the maximum number ({$max}) of allowed URLs.
 
-ask-action-type =
+ask-check-type =
   Got it! Now, send me the check to perform !
+
+ask-sentence =
+  Enter the sentence to look for this check !
 
 added-url = 
   {$url} has been added to the list of URLs to be monitored for change

@@ -4,8 +4,11 @@ empty-list =
 max-nbr-url =
   Vous avez atteint le nombre maximum ({$max}) d'URLs autorisées.
 
-ask-action-type =
+ask-check-type =
   Je l'ai! Maintenant, indique-moi le type de surveillance souhaité !
+
+ask-sentence =
+  Renseigner l'expression à rechercher pour cette surveillance !
 
 added-url = 
   {$url} a été ajouté à la liste ces URLs à monitorer

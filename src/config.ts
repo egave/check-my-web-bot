@@ -3,6 +3,6 @@ export const SETTINGS = {
 };
 
 export const CHECK_TYPE = [
-    "CHECK-STATUS", "CHECK-MD5"
+    "CHECK-STATUS", "CHECK-MD5", "CHECK-WORD-HIT", "CHECK-WORD-MISS"
 ];
   

@@ -6,7 +6,7 @@ import { getWebResourceInfo } from '../utils/getWebResourceInfo'
 const router = new Router<CustomContext>(ctx => ctx.session.route)
 
 router.route('test-url', async ctx => {
-    ctx.session.route = ''
+    ctx.session.route = 'idle'
 
     const url = String(ctx.msg?.text)
     if (!validURL(url)) {
