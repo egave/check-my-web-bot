@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": [
+      "deno.window"
+    ],
+    "strict": true
+  },
+  "lint": {
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/testdata/",
+      "data/fixtures/**/*.ts"
+    ],
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "include": [
+        "ban-untagged-todo"
+      ],
+      "exclude": [
+        "no-unused-vars"
+      ]
+    }
+  },
+  "fmt": {
+    "useTabs": true,
+    "lineWidth": 80,
+    "indentWidth": 4,
+    "semiColons": false,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/testdata/",
+      "data/fixtures/**/*.ts"
+    ]
+  },
+  "lock": false,
+  "nodeModulesDir": true,
+  "unstable": [
+    "webgpu"
+  ],
+  "npmRegistry": "https://mycompany.net/artifactory/api/npm/virtual-npm",
+  "test": {
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/testdata/",
+      "data/fixtures/**/*.ts"
+    ]
+  },
+  "tasks": {
+    "run": "export BOT_TOKEN=5779493877:AAEbpfFQJJl7iOhyMLgpoqiNrEj8seMiI_Y && deno run --allow-read --allow-net --allow-env --unstable --watch src/poll.ts",
+    "deploy": "deployctl deploy --project=check-my-web --save-config src/server.ts",
+    "deployPROD": "deployctl deploy --project=check-my-web --prod --save-config src/server.ts"
+  },
+  "imports": {
+    "http-server": "https://deno.land/std@0.217.0/http/server.ts",
+    "crypto": "https://deno.land/std@0.97.0/node/crypto.ts"
+  },
+  "deploy": {
+    "project": "bd0c53b7-be97-4f56-b359-c00bad3cf7a7",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "src/server.ts"
+  }
+}

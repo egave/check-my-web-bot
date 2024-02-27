@@ -1,4 +1,4 @@
-import type { UrlData } from './UrlData';
+import type { UrlData } from './UrlData.ts';
 
 interface SessionData {
     route: "idle" | "test-url" | "add-url" | "add-check-type" | "add-sentence"; // which step of the 'add' form we are on
@@ -9,4 +9,4 @@ interface SessionData {
     urlData: UrlData[]
 }
 
-export { SessionData }
+export type { SessionData }

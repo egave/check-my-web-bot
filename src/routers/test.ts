@@ -1,7 +1,7 @@
-import { Router } from '@grammyjs/router'
-import type { CustomContext } from '../types/CustomContext'
-import { validURL } from '../utils/validURL'
-import { getWebResourceInfo } from '../utils/getWebResourceInfo'
+import { Router } from 'npm:@grammyjs/router'
+import type { CustomContext } from '../types/CustomContext.ts'
+import { validURL } from '../utils/validURL.ts'
+import { getWebResourceInfo } from '../utils/getWebResourceInfo.ts'
 
 const router = new Router<CustomContext>(ctx => ctx.session.route)
 
@@ -19,12 +19,12 @@ router.route('test-url', async ctx => {
     const result = await getWebResourceInfo(url);
 
     if (result.error?.valueOf()) {
-        console.log('request failed')
+        console.debug('request failed')
         await ctx.reply(url+' is a valid URL.');
         await ctx.reply('But GET request failed with error: "' + result.error + '"');
     }
     else {
-        console.log('request suceeded')
+        console.debug('request suceeded')
         await ctx.reply(url+' is a valid URL.\nContent-Type=' + result.contentType + '\nStatus=' + result.status + '\nbodyMD5='+result.bodyMD5);
     }
 })

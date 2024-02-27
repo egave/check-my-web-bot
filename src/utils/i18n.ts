@@ -1,7 +1,9 @@
-import { Fluent } from '@moebius/fluent'
+import { Fluent } from 'npm:@moebius/fluent'
+import path from 'node:path';
 
 // Create an instance of @moebius/fluent and configure it
 export const fluent = new Fluent();
+const __dirname = path.resolve();
 
 // Add "english" translation
 fluent.addTranslation({
@@ -10,9 +12,9 @@ fluent.addTranslation({
 
   // Or the translation files:
   filePath: [
-    `${__dirname}/../i18n/commands.en.ftl`,
-    `${__dirname}/../i18n/messages.en.ftl`,
-    `${__dirname}/../i18n/errors.en.ftl`
+    `${__dirname}/src/i18n/commands.en.ftl`,
+    `${__dirname}/src/i18n/messages.en.ftl`,
+    `${__dirname}/src/i18n/errors.en.ftl`
   ],
   // All the aspects of Fluent are highly configurable:
   bundleOptions: {
@@ -28,9 +30,9 @@ fluent.addTranslation({
 
   // Or the translation files:
   filePath: [
-    `${__dirname}/../i18n/commands.fr.ftl`,
-    `${__dirname}/../i18n/messages.fr.ftl`,
-    `${__dirname}/../i18n/errors.fr.ftl`
+    `${__dirname}/src/i18n/commands.fr.ftl`,
+    `${__dirname}/src/i18n/messages.fr.ftl`,
+    `${__dirname}/src/i18n/errors.fr.ftl`
   ],
   // All the aspects of Fluent are highly configurable:
   bundleOptions: {

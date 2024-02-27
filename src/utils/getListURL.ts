@@ -1,5 +1,5 @@
-import { CHECK_TYPE } from '../config'
-import type { UrlData } from '../types/UrlData'
+import { CHECK_TYPE } from '../config.ts'
+import type { UrlData } from '../types/UrlData.ts'
 
 export function getListURL(_listUrlData: UrlData[]) : string {
   let stringifyURLs: string = "";

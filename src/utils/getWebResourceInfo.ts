@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { createHash } from 'crypto';
+import axios from 'npm:axios';
+import * as crypto from 'crypto';
 
 export interface Result {
   error?: string,
@@ -13,8 +13,8 @@ export async function getWebResourceInfo(url: string):Promise<Result>  {
   try {
     const res = await axios.get(url);
 
-    let md5 = createHash('md5').update(res.data, 'utf8').digest('base64');
-
+    let md5 = crypto.createHash('md5').update(res.data, 'utf8').digest('hex');
+    
     const result:Result = {status: res.status, contentType: res.headers['content-type'], bodyMD5: md5, data: res.data};
 
     console.log('response status is: ', result.status);

@@ -1,10 +1,10 @@
-import { Router } from '@grammyjs/router'
-import { Context, Keyboard } from 'grammy'
-import type { CustomContext } from '../types/CustomContext'
-import { CHECK_TYPE } from '../config'
-import { validURL } from '../utils/validURL'
-import { Result, getWebResourceInfo } from '../utils/getWebResourceInfo'
-import { FluentVariable } from '@fluent/bundle'
+import { Router } from 'npm:@grammyjs/router'
+import { Context, Keyboard } from 'npm:grammy'
+import type { CustomContext } from '../types/CustomContext.ts'
+import { CHECK_TYPE } from '../config.ts'
+import { validURL } from '../utils/validURL.ts'
+import { Result, getWebResourceInfo } from '../utils/getWebResourceInfo.ts'
+import { FluentVariable } from 'npm:@fluent/bundle'
 
 var result: Result;
 
@@ -32,7 +32,7 @@ router.route('add-url', async ctx => {
     result = await getWebResourceInfo(ctx.session.urlToAdd);
     // Error in the GET
     if (result.error?.valueOf() ) {
-        console.log(`/add URL ${ctx.session.urlToAdd} failed with error: ${result.error}`)
+        console.debug(`/add URL ${ctx.session.urlToAdd} failed with error: ${result.error}`)
         await ctx.reply(ctx.t('get-web-resource-failed', {
             url: ctx.session.urlToAdd,
             error: result.error
@@ -45,7 +45,7 @@ router.route('add-url', async ctx => {
     else {
         if (result.status != 200) {
             // GET did not returned a 200 HTTP status code  
-            console.log(`/add URL ${ctx.session.urlToAdd} failed. GET request returned status: ${result.status}`)
+            console.debug(`/add URL ${ctx.session.urlToAdd} failed. GET request returned status: ${result.status}`)
             await ctx.reply(ctx.t('get-bad-status', {
                 url: ctx.session.urlToAdd,
                 status: result.status ? result.status : -1 
@@ -97,7 +97,7 @@ router.route('add-check-type', async ctx => {
         });
     } else {
         ctx.session.urlData.push({ 'url': ctx.session.urlToAdd, 'check_type': CHECK_TYPE[ctx.session.checkType], 'content_type': result.contentType, 'last_status': result.status, 'last_md5': result.bodyMD5 })
-        console.log(`/add URL ${ctx.session.urlToAdd} suceeded`)
+        console.debug(`/add URL ${ctx.session.urlToAdd} suceeded`)
             
         await ctx.reply(ctx.t('added-url', {
             url: ctx.session.urlToAdd,
@@ -142,7 +142,7 @@ router.route('add-sentence', async ctx => {
     else {
         ctx.session.sentence = sentence
         ctx.session.urlData.push({ 'url': ctx.session.urlToAdd, 'check_type': CHECK_TYPE[ctx.session.checkType], 'sentence': ctx.session.sentence, 'content_type': result.contentType, 'last_status': result.status, 'last_md5': result.bodyMD5 })
-        console.log(`/add URL ${ctx.session.urlToAdd} suceeded`)
+        console.debug(`/add URL ${ctx.session.urlToAdd} suceeded`)
             
         await ctx.reply(ctx.t('added-url', {
             url: ctx.session.urlToAdd,
@@ -162,7 +162,7 @@ async function storeWatchScenario(_ctx: CustomContext) {
    const result = await getWebResourceInfo(_ctx.session.urlToAdd);
    // Error in the GET
    if (result.error?.valueOf() ) {
-       console.log(`/add URL ${_ctx.session.urlToAdd} failed with error: ${result.error}`)
+       console.debug(`/add URL ${_ctx.session.urlToAdd} failed with error: ${result.error}`)
        await _ctx.reply(_ctx.t('get-web-resource-failed', {
            url: _ctx.session.urlToAdd,
            error: result.error
@@ -171,7 +171,7 @@ async function storeWatchScenario(_ctx: CustomContext) {
    else {
        if (result.status != 200) {
            // GET did not returned a 200 HTTP status code  
-           console.log(`/add URL ${_ctx.session.urlToAdd} failed. GET request returned status: ${result.status}`)
+           console.debug(`/add URL ${_ctx.session.urlToAdd} failed. GET request returned status: ${result.status}`)
            await _ctx.reply(_ctx.t('get-bad-status', {
                         url: _ctx.session.urlToAdd,
                         status: result.status ? result.status : -1 
@@ -185,7 +185,7 @@ async function storeWatchScenario(_ctx: CustomContext) {
            //     ctx.session.url = []
            //const urlData:UrlData = { url, ACTION['PING'], -1 }
            _ctx.session.urlData.push({ 'url': _ctx.session.urlToAdd, 'check_type': CHECK_TYPE[_ctx.session.checkType], 'sentence': _ctx.session.sentence, 'content_type': result.contentType, 'last_status': result.status, 'last_md5': result.bodyMD5 })
-           console.log(`/add URL ${_ctx.session.urlToAdd} suceeded`)
+           console.debug(`/add URL ${_ctx.session.urlToAdd} suceeded`)
            await _ctx.reply(_ctx.t('added-url', {
                url: _ctx.session.urlToAdd,
                contentType: (result.contentType != undefined)?result.contentType:"undefined",
